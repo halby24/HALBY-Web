@@ -1,4 +1,4 @@
-import {CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {BlogRoutingModule} from './blog-routing.module';
@@ -7,10 +7,9 @@ import {ArticleListComponent} from './article-list/article-list.component';
 import {PartsModule} from '../parts/parts.module';
 import {WordPressModule} from '../word-press/word-press.module';
 import {ArticleComponent} from './article/article.component';
-import { BlogSideBarComponent } from './blog-side-bar/blog-side-bar.component';
-import { BlogSearchComponent } from './blog-search/blog-search.component';
+import {BlogSideBarComponent} from './blog-side-bar/blog-side-bar.component';
+import {BlogSearchComponent} from './blog-search/blog-search.component';
 import {HighlightJsModule} from 'angular2-highlight-js';
-import 'highlight.js/lib/highlight';
 
 @NgModule({
   imports: [
