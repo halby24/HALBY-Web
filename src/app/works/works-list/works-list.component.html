@@ -1,0 +1,12 @@
+<div class="container section">
+  <masonry>
+    <masonry-brick class="brick tile is-parent"
+                   *ngFor="let brick of bricks | async">
+      <app-work-tile [image]="brick._embedded ? brick._embedded['wp:featuredmedia'][0].source_url : ''"
+                     [title]="brick.title.rendered"
+                     [body]="brick.body"
+                     [id]="brick.id"></app-work-tile>
+    </masonry-brick>
+  </masonry>
+
+</div>

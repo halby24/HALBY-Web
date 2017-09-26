@@ -1,0 +1,30 @@
+<div class="container section">
+  <div class="columns is-hidden-tablet">
+    <div class="column">
+      <a class="button"
+         style="width: 100%"
+         (click)="filterToggle = filterToggle === 'visible' ? 'hidden' : 'visible'">
+        検索、カテゴリフィルタを{{filterToggle === 'visible' ? '閉じる' : '開く'}}
+      </a>
+    </div>
+    <div class="column" style="overflow: hidden" [@click]="filterToggle">
+      <app-blog-side-bar></app-blog-side-bar>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column is-8">
+      <div class="columns is-multiline">
+        <div class="column is-half is-one-third-fullhd"
+             *ngFor="let article of articles | async">
+          <app-card [title]="article.title.rendered"
+                    [date]="article.date"
+                    [image]="article._embedded['wp:featuredmedia'][0].source_url"
+                    [routerLink]="'/blog/' + article.id"></app-card>
+        </div>
+      </div>
+    </div>
+    <div class="column is-4 is-hidden-mobile">
+      <app-blog-side-bar></app-blog-side-bar>
+    </div>
+  </div>
+</div>

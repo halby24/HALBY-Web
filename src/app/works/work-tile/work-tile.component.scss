@@ -1,0 +1,17 @@
+.background {
+  height: 100px;
+  background: center center /cover;
+  margin: -1.25rem -1.5rem 1rem;
+}
+
+.tile {
+  cursor: pointer;
+}
+
+.notification /deep/ {
+  padding-right: 1.5rem;
+}
+
+.content {
+  line-clamp: 3;
+}

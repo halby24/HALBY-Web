@@ -1,0 +1,80 @@
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      ブログ内を検索
+    </p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <input class="input" placeholder="Search" (keydown)="search($event)">
+    </div>
+  </div>
+</div>
+<div class="spacer"></div>
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      人気の記事
+    </p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <ng-container *ngIf="(articles | async); else noPopular">
+        <div class="box" *ngFor="let article of articles | async">
+          <article class="media">
+            <div class="media-left">
+              <figure class="image is-64x64" style="margin: 0">
+                <img src="http://bulma.io/images/placeholders/128x128.png" alt="Image">
+              </figure>
+            </div>
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong>John Smith</strong>
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </ng-container>
+      <ng-template #noPopular>
+        <p>人気の記事はまだありません😇</p>
+      </ng-template>
+    </div>
+  </div>
+</div>
+<div class="spacer"></div>
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      カテゴリ一覧
+    </p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <aside class="menu">
+        <ul class="menu-list" style="list-style: none; margin: 0">
+          <li *ngFor="let category of categories | async"><a [routerLink]="['/blog']" [queryParams]="{categories: category.id}">{{category.name}}</a></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</div>
+<div class="spacer"></div>
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      タグ一覧
+    </p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <span class="tag"
+            *ngFor="let tag of tags | async"
+            [routerLink]="['/blog']"
+            [queryParams]="{tags: tag.id}">
+        {{tag.name}}
+      </span>
+    </div>
+  </div>
+</div>

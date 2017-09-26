@@ -1,0 +1,13 @@
+<section class="section">
+  <div class="container">
+    <h1 class="title">{{(work | async)?.title.rendered}}</h1>
+    <!--<h2 class="subtitle"></h2>-->
+    <hr>
+    <div class="header-image-wrapper" *ngIf="(work | async)?._embedded">
+      <img class="header-image" [src]="(work | async)?._embedded['wp:featuredmedia'][0].source_url">
+    </div>
+    <div class="columns">
+      <div class="column is-8 is-offset-2" [innerHtml]="(work | async)?.content.rendered | sanitizeHtml"></div>
+    </div>
+  </div>
+</section>

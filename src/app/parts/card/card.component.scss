@@ -1,0 +1,32 @@
+:host {
+  height: 100%;
+  display: block;
+}
+
+.hover-wrapper {
+  height: 100%;
+  transform: translateY(0);
+  transition: transform .2s ease;
+  &:hover {
+    transform: translateY(-3px);
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    height: 100%;
+    .background {
+      height: 180px;
+      background: center center /cover;
+    }
+    .card-content {
+      flex: 1;
+      .content {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+      }
+    }
+  }
+}

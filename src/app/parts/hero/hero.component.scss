@@ -1,0 +1,16 @@
+.hero-body {
+  perspective: 600px;
+  .bg-wrapper {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background: center center /cover;
+    transform-style: preserve-3d;
+  }
+}
+
+.shadow {
+  text-shadow:0 2px 5px #141414;
+}

@@ -1,0 +1,62 @@
+<div class="container" [@show]="'show'">
+  <nav class="navbar is-transparent">
+    <div class="navbar-brand">
+      <a class="navbar-item" routerLink="/">
+        <img src="assets/images/nav/halby-logo.svg" alt="HALBY Official Web" width="112" height="28">
+      </a>
+
+      <a class="navbar-item is-hidden-desktop" [href]="s.link" target="_blank" *ngFor="let s of social">
+        <span class="icon" [ngStyle]="{color: s.color}">
+          <i class="fa fa-lg" [ngClass]="'fa-' + s.icon"></i>
+        </span>
+      </a>
+
+      <div class="navbar-burger burger"
+           data-target="navMenuTransparentExample"
+           [ngClass]="{'is-active': burger}"
+           (click)="burger = !burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div id="navMenuTransparentExample"
+         class="navbar-menu"
+         [ngClass]="{'is-active': burger}"
+         (click)="burger = false">
+      <div class="navbar-start">
+        <ng-container *ngFor="let menu of menuItems">
+          <div class="navbar-item has-dropdown is-hoverable" *ngIf="menu?.dropdown; else linkMenu">
+            <a class="navbar-link" [routerLink]="menu.link">
+              <span class="bd-emoji" *ngIf="menu?.emoji">{{menu.emoji}}️</span>
+              {{menu.title}}
+            </a>
+            <div class="navbar-dropdown is-boxed">
+              <a class="navbar-item" *ngFor="let dropdown of menu" [routerLink]="dropdown.link">
+                {{dropdown.title}}
+              </a>
+            </div>
+          </div>
+          <ng-template #linkMenu>
+            <a class="navbar-item" [routerLink]="menu.link">
+              <span class="bd-emoji" *ngIf="menu?.emoji">{{menu.emoji}}️</span>
+              {{menu.title}}
+            </a>
+          </ng-template>
+        </ng-container>
+      </div>
+
+      <div class="navbar-end">
+        <a class="navbar-item is-hidden-mobile" [href]="s.link" target="_blank" *ngFor="let s of social">
+        <span class="icon" [ngStyle]="{color: s.color}">
+          <i class="fa fa-lg" [ngClass]="'fa-' + s.icon"></i>
+        </span>
+        </a>
+        <div class="navbar-item">
+          <div class="field is-grouped"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

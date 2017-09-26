@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bulma/css/bulma.css";
+@import "~font-awesome/css/font-awesome.min.css";
+@import "~source-code-pro/source-code-pro.css";
+@import "~highlight.js/styles/default.css";
+
+@mixin size($size) {
+  @if $size == 'mobile' {
+    @media (max-width: 768px) {
+      @content
+    }
+  }
+  @if $size == 'tablet' {
+    @media (min-width: 769px) and (max-width: 1007px) {
+      @content
+    }
+  }
+  @if $size == 'desktop' {
+    @media (min-width: 1008px) and (max-width: 1199px) {
+      @content
+    }
+  }
+  @if $size == 'wide' {
+    @media (min-width: 1200px) and (max-width: 1391px) {
+      @content
+    }
+  }
+  @if $size == 'fhd' {
+    @media (min-width: 1392px) {
+      @content
+    }
+  }
+}
+
+.page-title {
+  margin: 1rem 0 2rem;
+  text-align: center;
+}
+
+.text {
+  max-width: 700px;
+  p {
+    padding: .25em;
+  }
+}

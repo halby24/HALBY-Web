@@ -1,0 +1,13 @@
+<section class="hero" [ngClass]="[color ? 'is-' + color : '', size ? 'is-' + size : '']">
+  <div class="hero-body">
+    <div class="bg-wrapper" [@bgLoaded]="bgLoaded" [ngStyle]="{'background-image': 'url(' + (bgImage || '') + ')'}"></div>
+    <div class="container" [ngClass]="{'has-text-centered': centered}">
+      <h1 class="title" [ngClass]="{'shadow': shadow}">
+        {{title}}
+      </h1>
+      <h2 class="subtitle" [ngClass]="{'shadow': shadow}">
+        {{subtitle}}
+      </h2>
+    </div>
+  </div>
+</section>
