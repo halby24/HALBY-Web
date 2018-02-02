@@ -7,7 +7,7 @@ import {BioComponent} from './bio/bio.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'blog', loadChildren: './blog/blog.module#BlogModule' },
-  { path: 'works', loadChildren: './works/works.module#WorksModule' },
+  { path: 'works', loadChildren: './contents/contents.module#ContentsModule' },
   { path: 'biography', component: BioComponent },
   { path: '**', component: PageNotFoundComponent },
 ];

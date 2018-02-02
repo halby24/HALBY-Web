@@ -1,5 +1,32 @@
-<app-hero title="Diary"
-          subtitle="意識低い大学生の雑記 主にWeb開発とDTMの話"
-          color="dark"
-          routerLink="/blog"></app-hero>
-<router-outlet></router-outlet>
+<div class="container section">
+  <div class="columns is-hidden-tablet">
+    <div class="column">
+      <a class="button"
+         style="width: 100%"
+         (click)="filterToggle = filterToggle === 'visible' ? 'hidden' : 'visible'">
+        検索、カテゴリフィルタを{{filterToggle === 'visible' ? '閉じる' : '開く'}}
+      </a>
+    </div>
+    <div class="column" style="overflow: hidden" [@click]="filterToggle">
+      <app-navigation></app-navigation>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column is-8">
+      <div class="columns is-multiline" [@slideUp]="slideUpState">
+        <div class="column is-half is-one-third-fullhd"
+             *ngFor="let article of articles | async">
+          <app-card [title]="article.title"
+                    [date]="article.date"
+                    [image]="article.image || ''"
+                    [embed]="article.embed"
+                    [html]="article.html"
+                    (click)="link(article.url, article.query)"></app-card>
+        </div>
+      </div>
+    </div>
+    <div class="column is-4 is-hidden-mobile">
+      <app-navigation></app-navigation>
+    </div>
+  </div>
+</div>

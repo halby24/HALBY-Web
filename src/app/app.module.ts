@@ -9,6 +9,7 @@ import {BioComponent} from './bio/bio.component';
 import {CarouselModule} from 'angular4-carousel';
 import {PartsModule} from './parts/parts.module';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import * as $ from 'jquery';
 
 @NgModule({
   declarations: [

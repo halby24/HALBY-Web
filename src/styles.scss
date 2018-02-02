@@ -2,7 +2,6 @@
 @import "~bulma/css/bulma.css";
 @import "~font-awesome/css/font-awesome.min.css";
 @import "~source-code-pro/source-code-pro.css";
-@import "~highlight.js/styles/default.css";
 
 @mixin size($size) {
   @if $size == 'mobile' {

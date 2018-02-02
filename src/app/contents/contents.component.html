@@ -8,23 +8,25 @@
       </a>
     </div>
     <div class="column" style="overflow: hidden" [@click]="filterToggle">
-      <app-blog-side-bar></app-blog-side-bar>
+      <app-navigation></app-navigation>
     </div>
   </div>
   <div class="columns">
     <div class="column is-8">
-      <div class="columns is-multiline">
+      <div class="columns is-multiline" [@slideUp]="slideUpState">
         <div class="column is-half is-one-third-fullhd"
              *ngFor="let article of articles | async">
-          <app-card [title]="article.title.rendered"
+          <app-card [title]="article.title"
                     [date]="article.date"
-                    [image]="article._embedded['wp:featuredmedia'][0].source_url"
-                    [routerLink]="'/blog/' + article.id"></app-card>
+                    [image]="article.image || ''"
+                    [embed]="article.embed"
+                    [html]="article.html"
+                    (click)="link(article.url, article.query)"></app-card>
         </div>
       </div>
     </div>
     <div class="column is-4 is-hidden-mobile">
-      <app-blog-side-bar></app-blog-side-bar>
+      <app-navigation></app-navigation>
     </div>
   </div>
 </div>

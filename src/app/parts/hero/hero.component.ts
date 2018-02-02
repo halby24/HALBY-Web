@@ -41,7 +41,7 @@ export class HeroComponent implements OnInit, OnChanges {
   ngOnChanges() {
     if (this.background) {
       const image = new Image();
-      image.onload = ev => {
+      image.onload = () => {
         this.bgImage = this.background;
         this.bgLoaded = 'visible';
       };

@@ -17,7 +17,7 @@ import {CardComponent} from './card/card.component';
     HeroComponent,
     FooterComponent,
     SanitizeHtmlPipe,
-    CardComponent
+    CardComponent,
   ],
   declarations: [
     NavComponent,
